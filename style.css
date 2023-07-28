@@ -73,11 +73,29 @@ section {
   background: #2696e9;
 }
 
+.home::before {
+  z-index: 777;
+  content: '';
+  /* background-color: rgba(66, 245, 215, 0.2); */
+  background-color: rgba(59, 156, 247, 0.2);
+  /* background-color: rgba(3, 96, 251, 0.3); */
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
 .home .content {
   z-index: 888;
   color: #fff;
   width: 70%;
   margin-top: 3.125rem;
+  display: none;
+}
+
+.home .content.active {
+  display: block;
 }
 
 .home .content h1 {
@@ -129,6 +147,59 @@ section {
   transform: scale(1.3);
 }
 
+.home video {
+  z-index: 000;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.slider-nav {
+  z-index: 888;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform: translateY(80px);
+  margin-bottom: 0.75rem;
+}
+
+.slider-nav .slider-nav-btn {
+  width: 0.75rem;
+  height: 0.75rem;
+  border-radius: 50%;
+  background-color: #fff;
+  cursor: pointer;
+  box-shadow: 0 0 2px rgba(255, 255, 255, 0.5);
+  transition: 0.3s ease;
+}
+
+.slider-nav .slider-nav-btn:not(:last-child) {
+  margin-right: 1.25rem;
+}
+
+.slider-nav .slider-nav-btn:hover {
+  transform: scale(1.2);
+}
+
+.slider-nav .slider-nav-btn.active {
+  background-color: #1680ac;
+}
+
+.video-slide {
+  position: absolute;
+  width: 100%;
+  clip-path: circle(0% at 0 50%);
+}
+
+.video-slide.active {
+  clip-path: circle(150% at 0 50%);
+  transition: 2s ease;
+  transition-property: clip-path;
+}
 @media (max-width: 1040px) {
   header {
     padding: 0.75rem 1.25rem;
